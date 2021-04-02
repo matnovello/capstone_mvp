@@ -7,8 +7,14 @@ class Api::GamesController < ApplicationController
       name: params[:user_name],
       game_id: @game.id,
     })
-    @user.save!
+    @user.save
 
+    @room = Room.new({
+      name: "Dungeon" + Random.rand(1..20).to_s,
+      game_id: @game.id,
+
+    })
+    @room.save!
     render "game_info.json.jb"
   end
 end

@@ -3,6 +3,8 @@
   current_room: @game.current_room,
   user: {
     name: @game.user.name,
-
+  },
+  room: {
+    info: @room.name,
   },
 }
