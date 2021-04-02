@@ -15,6 +15,12 @@ class Api::GamesController < ApplicationController
 
     })
     @room.save!
+
+    @game.update({
+      current_room: @room.id,
+    })
+    @game.save
+
     render "game_info.json.jb"
   end
 end
