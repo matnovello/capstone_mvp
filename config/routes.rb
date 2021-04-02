@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   # namespace :api do
   #   get "/photos" => "photos#index"
   # end
+  namespace :api do
+
+    #creates new game
+    post "/games" => "games#create"
+  end
 end
