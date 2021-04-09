@@ -21,6 +21,7 @@ class Api::GamesController < ApplicationController
     })
     @game.save
 
+    #/ needs to render actual game instead of information
     render "game_info.json.jb"
   end
 end
