@@ -24,4 +24,27 @@ class Api::GamesController < ApplicationController
     #/ needs to render actual game instead of information
     render "game_info.json.jb"
   end
+
+  def show
+    @game = Game.find_by(id: params[:id])
+
+    render "game_info.json.jb"
+  end
+
+  def update
+    @game = Game.find_by(id: params[:id])
+    @room = Room.new({
+      name: "Dungeon" + Random.rand(1..20).to_s,
+      game_id: @game.id,
+
+    })
+    @room.save!
+
+    @game.update({
+      current_room: @room.id,
+    })
+    @game.save
+
+    render "game_info.json.jb"
+  end
 end

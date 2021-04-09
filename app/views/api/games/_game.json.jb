@@ -4,8 +4,4 @@
   user: {
     name: @game.user.name,
   },
-  room: {
-    id: @room.id,
-    info: @room.name,
-  },
 }

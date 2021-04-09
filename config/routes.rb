@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
     #creates new game
     post "/games" => "games#create"
+    get "/games/:id" => "games#show"
+    patch "/games/:id" => "games#update"
   end
 end
