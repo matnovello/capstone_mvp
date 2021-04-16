@@ -15,8 +15,8 @@ class Api::GamesController < ApplicationController
       name: "Dungeon" + "" + Random.rand(1..20).to_s,
       game_id: @game.id, #assigns room to current game
       #randomly assigns monster to room
-      has_monster?: [true, false].sample,
-
+      #has_monster?: [true, false].sample,
+      has_monster?: true,
     })
     @room.save!
 
@@ -40,6 +40,7 @@ class Api::GamesController < ApplicationController
     @room = Room.new({
       name: "Dungeon" + "" + Random.rand(1..20).to_s,
       game_id: @game.id,
+      has_monster?: [true, false].sample,
 
     })
     @room.save!
@@ -47,7 +48,7 @@ class Api::GamesController < ApplicationController
     @game.update({
       current_room: @room.id,
     })
-    @game.save
+    @game.save!
 
     render "game_info.json.jb"
   end

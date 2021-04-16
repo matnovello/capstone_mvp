@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_004054) do
+ActiveRecord::Schema.define(version: 2021_04_16_013122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 2021_04_16_004054) do
   create_table "blob_monsters", force: :cascade do |t|
     t.string "name"
     t.string "catch_phrase"
-    t.string "max_health"
-    t.string "attack"
-    t.string "defense"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "max_health"
+    t.integer "attack"
+    t.integer "defense"
   end
 
   create_table "games", force: :cascade do |t|
