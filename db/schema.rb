@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_013122) do
+ActiveRecord::Schema.define(version: 2021_04_16_014238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_013122) do
     t.integer "max_health"
     t.integer "attack"
     t.integer "defense"
+    t.integer "room_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_013122) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "game_id"
     t.boolean "has_monster?"
+    t.integer "monster_id"
   end
 
   create_table "users", force: :cascade do |t|
