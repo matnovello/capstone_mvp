@@ -3,5 +3,7 @@
   current_room: @game.current_room,
   user: {
     name: @game.user.name,
+    base_health: @game.user.base_health,
   },
+
 }

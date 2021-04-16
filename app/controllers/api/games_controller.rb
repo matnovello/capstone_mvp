@@ -6,11 +6,12 @@ class Api::GamesController < ApplicationController
     @user = User.new({
       name: params[:user_name],
       game_id: @game.id,
+      base_health: 50,
     })
     @user.save
 
     @room = Room.new({
-      name: "Dungeon" + Random.rand(1..20).to_s,
+      name: "Dungeon" + "" + Random.rand(1..20).to_s,
       game_id: @game.id,
 
     })
@@ -34,7 +35,7 @@ class Api::GamesController < ApplicationController
   def update
     @game = Game.find_by(id: params[:id])
     @room = Room.new({
-      name: "Dungeon" + Random.rand(1..20).to_s,
+      name: "Dungeon" + "" + Random.rand(1..20).to_s,
       game_id: @game.id,
 
     })
