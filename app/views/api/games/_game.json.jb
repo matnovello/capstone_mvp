@@ -1,6 +1,10 @@
 {
   game_id: @game.id,
-  current_room: @game.current_room,
+  room: {
+    current_room: @game.current_room,
+    has_monster?: @game.rooms.last.has_monster?,
+  },
+
   user: {
     name: @game.user.name,
     base_health: @game.user.base_health,
