@@ -1,0 +1,2 @@
+class BlobMonster < ApplicationRecord
+end
