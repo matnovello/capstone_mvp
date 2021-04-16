@@ -9,12 +9,11 @@
     name: @game.user.name,
     base_health: @game.user.base_health,
   },
-  monster: {
-    name: @game.rooms.last.blob_monster.name,
-    catch_phrase: @game.rooms.last.blob_monster.catch_phrase,
-    max_health: @game.rooms.last.blob_monster.max_health,
-    attack: @game.rooms.last.blob_monster.attack,
-    defense: @game.rooms.last.blob_monster.defense,
-
-  },
+  
+  FIGURE OUT HOW TO USE CONDITIONALS IN JSON AHAHGHGHGHGHGHGHGGGGHGHHHHHH SO ANNOYING     
+  if( @game.rooms.last.has_monster? === true)                           
+    {
+    message: "hello"
+    },
+end
 }
