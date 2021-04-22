@@ -1,4 +1,4 @@
 class Room < ApplicationRecord
   belongs_to :game
-  has_one :blob_monster
+  has_one :monster
 end

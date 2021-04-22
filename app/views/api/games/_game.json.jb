@@ -9,7 +9,5 @@
     name: @game.user.name,
     base_health: @game.user.base_health,
   },
-  monster: {
-    name: @game.rooms.BlobMo,
-  },
+  monster: @monster,
 }

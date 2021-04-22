@@ -20,12 +20,12 @@ class Api::GamesController < ApplicationController
     @room.save!
     if @room.has_monster? == true
       #create a monster
-      @monster = BlobMonster.new({
-        name: "blob",
-        catch_phrase: "im-a gonna get ya!",
-        max_health: 10,
-        attack: 30,
-        defense: 5,
+      @monster = Monster.new({
+        name: "pewp",
+        # catch_phrase: "im-a gonna get ya!",
+        # max_health: 10,
+        # attack: 30,
+        # defense: 5,
         room_id: @room.id,
       })
 
@@ -63,17 +63,27 @@ class Api::GamesController < ApplicationController
     #if room.has_monster is true create a monster
     if @room.has_monster? == true
       #create a monster
-      @monster = BlobMonster.new({
-        name: "blob",
-        catch_phrase: "im-a gonna get ya!",
-        max_health: 10,
-        attack: 30,
-        defense: 5,
+      @monster = Monster.new({
+        name: "pewp",
+        # catch_phrase: "im-a gonna get ya!",
+        # max_health: 10,
+        # attack: 30,
+        # defense: 5,
         room_id: @room.id,
       })
       #save the monster
       @monster.save!
       #update room with monster
+      @room.update({
+        monster_id: @monster.id,
+      })
+    else
+      @monster = {
+        name: "null",
+        id: "null",
+        room_id: @room_id,
+
+      }
       @room.update({
         monster_id: @monster.id,
       })
