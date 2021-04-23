@@ -2,7 +2,7 @@
   game_id: @game.id,
   room: {
     current_room: @game.current_room,
-    has_monster?: @game.rooms.last.has_monster?,
+    has_monster: @game.rooms.last.has_monster?,
   },
 
   user: {
