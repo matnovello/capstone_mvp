@@ -34,13 +34,11 @@ class Api::GamesController < ApplicationController
       @room.update({
         monster_id: @monster.id,
       })
-      @room.save!
     end
 
     @game.update({
       current_room: @room.id, #assigns current game room to newly created
     })
-    @game.save
 
     render "game_info.json.jb"
   end
