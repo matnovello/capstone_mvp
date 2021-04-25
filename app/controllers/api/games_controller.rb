@@ -11,14 +11,24 @@ class Api::GamesController < ApplicationController
     })
     @user.save
     #generates new room
+
     @room = Room.new({
       name: "Dungeon" + "" + Random.rand(1..20).to_s,
       game_id: @game.id, #assigns room to current game
       #randomly assigns monster to room
       has_monster: [true, false].sample,
       has_escaped: false,
+      has_loot: false,
     })
     @room.save!
+
+    #dice roll for room loot probability
+    dice_roll = Random.rand(1..10)
+    if dice_roll < 5
+      @room.update(has_loot: true)
+      #generate the loot
+    end
+
     if @room.has_monster == true
       #create a monster
       @monster = Monster.new({
@@ -36,6 +46,9 @@ class Api::GamesController < ApplicationController
       @room.update({
         room_id: @monster.id,
       })
+      if @room.has_loot == true
+        #generate loot
+      end
     end
 
     @game.update({
@@ -59,8 +72,16 @@ class Api::GamesController < ApplicationController
       game_id: @game.id,
       has_monster: [true, false].sample,
       has_escaped: false,
+      has_loot: false,
     })
     @room.save!
+
+    #dice roll for room loot probability
+    dice_roll = Random.rand(1..10)
+    if dice_roll < 5
+      @room.update(has_loot: true)
+      #generate the loot
+    end
     #if room.has_monster is true create a monster
     if @room.has_monster == true
       #create a monster
@@ -79,6 +100,9 @@ class Api::GamesController < ApplicationController
       @room.update({
         monster_id: @monster.id,
       })
+    end
+    if @room.has_loot == true
+      #generate loot
     end
     #then updates current game room
     @game.update({

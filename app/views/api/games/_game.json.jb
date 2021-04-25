@@ -4,6 +4,7 @@
     current_room: @game.current_room,
     has_monster: @game.rooms.last.has_monster,
     has_escaped: @game.rooms.last.has_escaped,
+    has_loot: @game.rooms.last.has_loot,
   },
 
   user: {
