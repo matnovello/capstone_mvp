@@ -16,6 +16,7 @@ class Api::GamesController < ApplicationController
       game_id: @game.id, #assigns room to current game
       #randomly assigns monster to room
       has_monster: [true, false].sample,
+      has_escaped: false,
     })
     @room.save!
     if @room.has_monster == true
@@ -57,6 +58,7 @@ class Api::GamesController < ApplicationController
       name: "Dungeon" + "" + Random.rand(1..20).to_s,
       game_id: @game.id,
       has_monster: [true, false].sample,
+      has_escaped: false,
     })
     @room.save!
     #if room.has_monster is true create a monster
@@ -86,18 +88,4 @@ class Api::GamesController < ApplicationController
 
     render "game_info.json.jb"
   end
-
-  #user story attack methods (stored in here until i find a better place to put them)
-
-  #run method
-  def user_run
-    dice_roll = Random.rand(1..8)
-    if dice_roll <= 3
-      user.escape = false
-    else
-      user.escape = true
-    end
-  end
-
-  #if user runs, there is a chance they can escape, or cant
 end
