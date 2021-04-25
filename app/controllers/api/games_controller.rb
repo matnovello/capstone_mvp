@@ -21,7 +21,7 @@ class Api::GamesController < ApplicationController
     if @room.has_monster == true
       #create a monster
       @monster = Monster.new({
-        name: "blob slime evil thingy",
+        name: "Level" + Random.rand(1..20).to_s + "Swamp Skeleton",
         # catch_phrase: "im-a gonna get ya!",
         # max_health: 10,
         # attack: 30,
@@ -62,7 +62,7 @@ class Api::GamesController < ApplicationController
     if @room.has_monster == true
       #create a monster
       @monster = Monster.new({
-        name: "blob slime evil thingy",
+        name: "Level" + " " + Random.rand(1..5  ).to_s + " " + "Swamp Skeleton",
         # catch_phrase: "im-a gonna get ya!",
         # max_health: 10,
         # attack: 30,
