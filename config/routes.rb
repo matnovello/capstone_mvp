@@ -12,5 +12,10 @@ Rails.application.routes.draw do
     post "/games" => "games#create"
     get "/games/:id" => "games#show"
     patch "/games/:id" => "games#update"
+
+    patch "/games/user_run" => "games#user_run"
+    #monsters routes
+    get "/monsters/:id" => "monsters#show"
+    patch "/monsters/:id" => "monsters#user_attack"
   end
 end

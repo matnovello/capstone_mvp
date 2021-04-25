@@ -22,6 +22,7 @@ class Api::GamesController < ApplicationController
       #create a monster
       @monster = Monster.new({
         name: "Level" + Random.rand(1..20).to_s + "Swamp Skeleton",
+        is_dead: false,
         # catch_phrase: "im-a gonna get ya!",
         # max_health: 10,
         # attack: 30,
@@ -32,7 +33,7 @@ class Api::GamesController < ApplicationController
       @monster.save!
       #update room with monster
       @room.update({
-        monster_id: @monster.id,
+        room_id: @monster.id,
       })
     end
 
@@ -62,7 +63,8 @@ class Api::GamesController < ApplicationController
     if @room.has_monster == true
       #create a monster
       @monster = Monster.new({
-        name: "Level" + " " + Random.rand(1..5  ).to_s + " " + "Swamp Skeleton",
+        name: "Level" + " " + Random.rand(1..5).to_s + " " + "Swamp Skeleton",
+        is_dead: false,
         # catch_phrase: "im-a gonna get ya!",
         # max_health: 10,
         # attack: 30,
@@ -84,4 +86,18 @@ class Api::GamesController < ApplicationController
 
     render "game_info.json.jb"
   end
+
+  #user story attack methods (stored in here until i find a better place to put them)
+
+  #run method
+  def user_run
+    dice_roll = Random.rand(1..8)
+    if dice_roll <= 3
+      user.escape = false
+    else
+      user.escape = true
+    end
+  end
+
+  #if user runs, there is a chance they can escape, or cant
 end
