@@ -1,0 +1,3 @@
+{
+  has_escaped: @room.has_escaped,
+}

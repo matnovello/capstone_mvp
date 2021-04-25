@@ -6,6 +6,6 @@ class Api::RoomsController < ApplicationController
     if dice_roll > 3
       @room.update(has_escaped: true)
     end
-    render json: @room.has_escaped
+    render "room_info.json.jb"
   end
 end
