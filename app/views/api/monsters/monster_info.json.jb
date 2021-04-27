@@ -1,5 +1,4 @@
 {
   monster: @monster,
   attack_damage: @attack_damage,
-
 }

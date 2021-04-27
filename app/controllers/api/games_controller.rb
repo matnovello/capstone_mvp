@@ -91,8 +91,11 @@ class Api::GamesController < ApplicationController
       #************
       #@randomLoot = Loot.find(Random.rand(1..Loot.length))
       #@loot = @randomLoot.clone
-
       @loot.save
+      @loot.update(room_id: @room.id)
+      @room.update({
+        loot_id: @loot.id,
+      })
     end
     #then updates current game room
     @game.update({
