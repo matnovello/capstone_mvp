@@ -84,14 +84,12 @@ class Api::GamesController < ApplicationController
       })
     end
     if @room.has_loot == true
-      @loot = Loot.first
       #right now this is hard coded to the first loot item..
       #************
       #logic for random loot
       #************
-      #@randomLoot = Loot.find(Random.rand(1..Loot.length))
-      #@loot = @randomLoot.clone
-      @loot.save
+      @random_loot = Loot.order("RANDOM()").first
+      @loot = @random_loot.clone
       @loot.update(room_id: @room.id)
       @room.update({
         loot_id: @loot.id,
