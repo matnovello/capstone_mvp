@@ -56,12 +56,16 @@ class Api::GamesController < ApplicationController
       #create a monster
       #monster catch phrases
       @catch_phrases = [
-        "time to die, I guess. All I have is this flimsy axe, heh.",
-        "OoOooooOo I'm spooky and evil",
-        "Its so cold being a skeleton",
+        "'time to die, I guess. All I have is this flimsy axe, heh.'",
+        "'OoOooooOo I'm spooky and evil'",
+        "'Its so cold being a skeleton'",
+        "'If I wasn't so cold and evil all the time, I'd probably play the xylophone on my ribs'",
+        "'just because I'm trying to kill you doesn't mean I don't have dinner to make'",
+        "'whats your deal? Don't you have some code to dry up?'",
+
       ]
       @monster = Monster.new({
-        name: "Level" + " " + Random.rand(1..5).to_s + " " + "Swamp Skeleton",
+        name: Faker::Games::ElderScrolls.first_name + " " + " The Skeleton",
         is_dead: false,
         # catch_phrase: "im-a gonna get ya!",
         # max_health: 10,
