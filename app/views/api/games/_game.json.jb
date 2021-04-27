@@ -13,4 +13,5 @@
     base_attack: @game.user.base_attack,
   },
   monster: @monster,
+  loot: @loot,
 }

@@ -62,6 +62,7 @@ class Api::GamesController < ApplicationController
         "'If I wasn't so cold and evil all the time, I'd probably play the xylophone on my ribs'",
         "'just because I'm trying to kill you doesn't mean I don't have dinner to make'",
         "'whats your deal? Don't you have some code to dry up?'",
+        "'oh s***, um.. I'MA GONNA EAT YA'",
 
       ]
       @monster = Monster.new({
@@ -83,7 +84,15 @@ class Api::GamesController < ApplicationController
       })
     end
     if @room.has_loot == true
-      #generate loot
+      @loot = Loot.first
+      #right now this is hard coded to the first loot item..
+      #************
+      #logic for random loot
+      #************
+      #@randomLoot = Loot.find(Random.rand(1..Loot.length))
+      #@loot = @randomLoot.clone
+
+      @loot.save
     end
     #then updates current game room
     @game.update({
