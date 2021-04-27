@@ -56,12 +56,11 @@ class Api::GamesController < ApplicationController
       #create a monster
       #monster catch phrases
       @catch_phrases = [
-        "'time to die, I guess. All I have is this flimsy axe, heh.'",
         "'OoOooooOo I'm spooky and evil'",
-        "'Its so cold being a skeleton'",
+        "'I bet you can't even click the Attack button. HA! '",
         "'If I wasn't so cold and evil all the time, I'd probably play the xylophone on my ribs'",
-        "'just because I'm trying to kill you doesn't mean I don't have dinner to make'",
-        "'whats your deal? Don't you have some code to dry up?'",
+        "'I'm not like other text RPG enemies, I care about your feelings... What's your astrology sign? '",
+        "'Pitiful Mortal! I shalt smiteth thine down the hades with my menicing pixelated image'",
         "'oh s***, um.. I'MA GONNA EAT YA'",
 
       ]
