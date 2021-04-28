@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_231759) do
+ActiveRecord::Schema.define(version: 2021_04_28_001958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,29 @@ ActiveRecord::Schema.define(version: 2021_04_27_231759) do
 
   create_table "games", force: :cascade do |t|
     t.integer "current_room"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "inventory_items", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "loot_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "loot_inventory", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "loot_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "loot_stashes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "loot_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,6 +83,14 @@ ActiveRecord::Schema.define(version: 2021_04_27_231759) do
     t.boolean "has_escaped"
     t.boolean "has_loot"
     t.integer "loot_id"
+  end
+
+  create_table "user_inventories", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "loot_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -12,6 +12,8 @@ class Api::GamesController < ApplicationController
     })
     @user.save
     #generates new room
+    @inventory = LootStash.new(user_id: @user.id)
+    @inventory.save
 
     @room = Room.new({
       name: "Dungeon" + "" + Random.rand(1..20).to_s,
@@ -57,10 +59,8 @@ class Api::GamesController < ApplicationController
       #monster catch phrases
       @catch_phrases = [
         "'OoOooooOo I'm spooky and evil'",
-        "'I bet you can't even click the Attack button. HA! '",
-        "'If I wasn't so cold and evil all the time, I'd probably play the xylophone on my ribs'",
         "'I'm not like other text RPG enemies, I care about your feelings... What's your astrology sign? '",
-        "'Pitiful Mortal! I shalt smiteth thine down the hades with my menicing pixelated image'",
+        "'Pitiful Mortal! I shalt smiteth thine down with this menacing pixelated sprite",
         "'oh s***, um.. I'MA GONNA EAT YA'",
 
       ]
