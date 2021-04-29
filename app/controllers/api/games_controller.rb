@@ -47,13 +47,6 @@ class Api::GamesController < ApplicationController
     })
     @room.save!
 
-    #dice roll for room loot probability
-    dice_roll = Random.rand(1..10)
-    if dice_roll < 5
-      @room.update(has_loot: true)
-      #generate the loot
-    end
-    #if room.has_monster is true create a monster
     if @room.has_monster == true
       #create a monster
       #monster catch phrases
@@ -77,9 +70,22 @@ class Api::GamesController < ApplicationController
       })
       #save the monster
       @monster.save!
+      #dice roll for monster loot probability
+      dice_roll = Random.rand(1..10)
+      if dice_roll < 5
+        @monster.update(has_loot: true)
+        #generate the loot
+      end
+    #if room.has_monster is true create a monster
       #update room with monster
       @room.update({
         monster_id: @monster.id,
+      })
+      @random_loot = Loot.order("RANDOM()").first
+      @loot = @random_loot.clone
+      @loot.update(mosnter_id: @room.id)    YOU HAVE TO GIVE THE LOOT MODEL A MONSTER_ID... THIS WILL NOT WORK WEEE OOOOO WEE OOOOO. AFTER THE DRY UP THE CODE..
+      @room.update({
+        loot_id: @loot.id,
       })
     end
     if @room.has_loot == true
@@ -87,12 +93,7 @@ class Api::GamesController < ApplicationController
       #************
       #logic for random loot
       #************
-      @random_loot = Loot.order("RANDOM()").first
-      @loot = @random_loot.clone
-      @loot.update(room_id: @room.id)
-      @room.update({
-        loot_id: @loot.id,
-      })
+
     end
     #then updates current game room
     @game.update({
