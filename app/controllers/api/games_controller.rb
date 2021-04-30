@@ -72,8 +72,15 @@ class Api::GamesController < ApplicationController
         "'oh s***, um.. I'MA GONNA EAT YA'",
 
       ]
+      @monster_titles = [
+        "The Wise",
+        "Of The Darkness",
+        "The One Without A Cool Title",
+        "Without Many Friends",
+        "Of Mayo For Sweat",
+      ]
       @monster = Monster.new({
-        name: Faker::Games::ElderScrolls.first_name + " " + " The Skeleton",
+        name: Faker::Games::ElderScrolls.first_name + ", " + @monster_titles.sample,
         is_dead: false,
         # catch_phrase: "im-a gonna get ya!",
         # max_health: 10,
