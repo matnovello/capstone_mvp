@@ -9,6 +9,7 @@ class Api::GamesController < ApplicationController
       game_id: @game.id, #assigns user to current game
       base_health: 50,
       base_attack: 5,
+      is_dead: false,
     })
     @user.save
     #generates new room
@@ -37,6 +38,9 @@ class Api::GamesController < ApplicationController
 
   def update
     @game = Game.find_by(id: params[:id])
+    #resets user health
+    @user = User.last
+    @user.update(base_health: 50)
     #creates new room
     @room = Room.new({
       name: "Dungeon" + "" + Random.rand(1..20).to_s,
@@ -76,7 +80,6 @@ class Api::GamesController < ApplicationController
         "The Wise",
         "Of The Darkness",
         "The One Without A Cool Title",
-        "Without Many Friends",
         "Of Mayo For Sweat",
       ]
       @monster = Monster.new({
@@ -88,6 +91,7 @@ class Api::GamesController < ApplicationController
         # defense: 5,
         room_id: @room.id,
         base_health: 20,
+        base_attack: 5,
         catch_phrase: @catch_phrases.sample,
       })
       #save the monster

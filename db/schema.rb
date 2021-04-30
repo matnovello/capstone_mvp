@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_235443) do
+ActiveRecord::Schema.define(version: 2021_04_30_013442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_235443) do
     t.integer "base_health"
     t.string "catch_phrase"
     t.boolean "has_loot"
+    t.integer "base_attack"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_235443) do
     t.integer "base_health"
     t.string "character_class"
     t.integer "base_attack"
+    t.boolean "is_dead"
   end
 
 end

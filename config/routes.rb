@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     patch "/games/user_run" => "games#user_run"
     #monsters routes
     get "/monsters/:id" => "monsters#show"
-    patch "/monsters/:id" => "monsters#user_attack"
+    patch "/monsters/:id" => "monsters#battle"
     #room routes
     get "/rooms/:id" => "rooms#user_run"
   end

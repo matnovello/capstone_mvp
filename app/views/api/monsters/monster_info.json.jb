@@ -1,4 +1,6 @@
 {
   monster: @monster,
+  user_health: @user.base_health,
   attack_damage: @attack_damage,
+  monster_attack_damage: @monster_attack_damage,
 }
