@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
-  def add_to_inventory
+  def show
+    @user = User.find(params[:id])
+    render "user.json.jb"
   end
 end

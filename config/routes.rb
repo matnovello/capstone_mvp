@@ -19,5 +19,9 @@ Rails.application.routes.draw do
     patch "/monsters/:id" => "monsters#battle"
     #room routes
     get "/rooms/:id" => "rooms#user_run"
+    #user routes
+    get "/users/:id" => "users#show"
+    #user_loots routes
+    post "user_loots" => "user_loots#add_to_inventory"
   end
 end
