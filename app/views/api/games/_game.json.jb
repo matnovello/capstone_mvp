@@ -12,6 +12,7 @@
     name: @game.user.name,
     base_health: @game.user.base_health,
     base_attack: @game.user.base_attack,
+    monsters_defeated: @game.user.monsters_defeated,
 
   },
   monster: @monster,

@@ -10,6 +10,7 @@ class Api::GamesController < ApplicationController
       base_health: 50,
       base_attack: 5,
       is_dead: false,
+      monsters_defeated: 0,
     })
     @user.save
     #generates new room
@@ -86,18 +87,33 @@ class Api::GamesController < ApplicationController
         "The One Without A Cool Title",
         "Of Mayo For Sweat",
       ]
-      @monster = Monster.new({
-        name: Faker::Games::ElderScrolls.first_name + ", " + @monster_titles.sample,
-        is_dead: false,
-        # catch_phrase: "im-a gonna get ya!",
-        # max_health: 10,
-        # attack: 30,
-        # defense: 5,
-        room_id: @room.id,
-        base_health: 20,
-        base_attack: 5,
-        catch_phrase: @catch_phrases.sample,
-      })
+
+      @boss_phrases = [
+        "Every click counts buddy, too bad you don't have any potions",
+        "You look so menacing behind that keyboard n00b",
+        "This is the part where you have to kill me, the boss, BUT GOOD LUCK CUZ IM WAY TOUGHER",
+      ]
+      if @user.monsters_defeated < 5
+        @monster = Monster.new({
+          name: Faker::Games::ElderScrolls.first_name + ", " + @monster_titles.sample,
+          is_dead: false,
+          room_id: @room.id,
+          base_health: 20,
+          base_attack: 5,
+          catch_phrase: @catch_phrases.sample,
+          is_boss: false,
+        })
+      elsif @user.monsters_defeated == 5
+        @monster = Monster.new({
+          name: Faker::Games::ElderScrolls.first_name + " " + "The Big Bad Boss",
+          is_dead: false,
+          room_id: @room.id,
+          base_health: 30,
+          base_attack: 10,
+          catch_phrase: @boss_phrases.sample,
+          is_boss: true,
+        })
+      end
       #save the monster
       @monster.save!
       #if room.has_monster is true create a monster

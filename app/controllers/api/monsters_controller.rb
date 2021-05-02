@@ -20,6 +20,7 @@ class Api::MonstersController < ApplicationController
       @monster.update({
         is_dead: true,
       })
+      @user.update(monsters_defeated: @user.monsters_defeated + 1)
     end
     # monster attack
     @monster_attack_damage = @monster.base_attack + Random.rand(1..3)
