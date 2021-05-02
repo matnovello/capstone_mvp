@@ -1,4 +1,6 @@
 class User < ApplicationRecord
-  has_many :loots, through: :loot_stashes
   belongs_to :game
+  has_one :user_loot
+  has_many :loots, through: :user_loot
+
 end

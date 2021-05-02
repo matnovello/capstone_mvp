@@ -13,8 +13,6 @@ class Api::GamesController < ApplicationController
     })
     @user.save
     #generates new room
-    @inventory = LootStash.new(user_id: @user.id)
-    @inventory.save
 
     @room = Room.new({
       name: "Dungeon" + "" + Random.rand(1..20).to_s,
@@ -58,8 +56,14 @@ class Api::GamesController < ApplicationController
     # Random.rand(1..10)
     if dice_roll == 5
       @room.update(has_loot: true)
-      @random_loot = Loot.order("RANDOM()").first
-      @loot = @random_loot.clone
+
+      @random_loot = Loot.all.sample
+      @loot = Loot.new({
+        name: @random_loot.name,
+        description: @random_loot.description,
+      })
+      @loot.save
+
       @room.update({ loot_id: @loot.id })
       @room.loot = @loot
     end
