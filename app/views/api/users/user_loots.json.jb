@@ -1,0 +1,4 @@
+@user.loots.map do |loot|
+  render partial: "user_loot.json.jb", locals: { loot: loot }
+  # render partial: "game.json.jb", locals: { game: @game }
+end

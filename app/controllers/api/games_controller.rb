@@ -77,8 +77,9 @@ class Api::GamesController < ApplicationController
       @catch_phrases = [
         "'OoOooooOo I'm spooky and evil'",
         "'I'm not like other text RPG enemies, I care about your feelings... What's your astrology sign? '",
-        "'Pitiful Mortal! I shalt smiteth thine down with this menacing pixelated sprite",
-        "'oh s***, um.. I'MA GONNA EAT YA'",
+        "'Pitiful Mortal! I shalt smiteth thine down with this menacing pixelated axe of doom'",
+        "'I will destroy you'",
+        "If you lose to me, I'll rm -rf your root directory'",
 
       ]
       @monster_titles = [
@@ -86,6 +87,7 @@ class Api::GamesController < ApplicationController
         "Of The Darkness",
         "The One Without A Cool Title",
         "Of Mayo For Sweat",
+        "The One Who Could Care Less About Killing You",
       ]
 
       @boss_phrases = [

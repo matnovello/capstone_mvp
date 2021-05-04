@@ -1,0 +1,4 @@
+{
+  name: loot.name,
+  description: loot.description,
+}

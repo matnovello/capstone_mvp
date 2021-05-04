@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     #room routes
     get "/rooms/:id" => "rooms#user_run"
     #user routes
+    get "/users/:id/loots" => "users#show_loots"
     get "/users/:id" => "users#show"
     #user_loots routes
     post "user_loots" => "user_loots#add_to_inventory"
